@@ -9,10 +9,10 @@
         <table class="table table-bordered table-striped table-light table-hover ">
             <thead class="">
                 <tr>
-                    <th scope="col-3">Id</th>
-                    <th scope="col-3">User Name</th>
-                    <th scope="col-3">E-mail</th>
-                    <th scope="col-3">Actions</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
