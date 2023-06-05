@@ -15,10 +15,10 @@ class AdminSeeder extends Seeder
     public function run(): void
     {
        $user=new User;
-       $user->name='Ammar Zafar';
-       $user->email='ammar1@gmail.com';
+       $user->name='Muhammad Kamran';
+       $user->email='allahho.kamran@gmail.com';
        $user->role=1;
-       $user->password='ammarzaf';
+       $user->password='kamrankam';
        $user->save();
     }
 }

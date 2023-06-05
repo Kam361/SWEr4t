@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.user_layout')
 @section('content')
     <div class="col-10 offset-2">
         <a href="{{ route('index')}}"><button

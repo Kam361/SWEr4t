@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +13,14 @@ use App\Http\Controllers\HomeController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('welcome');
 });
 Auth::routes(['verify' => true]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
-Route::get('/index', [HomeController::class, 'index'])->name('index');
+Route::get('/index', [HomeController::class, 'index'])->middleware('verified')->name('index');
 Route::get('/index1', [HomeController::class, 'index1'])->name('index1');
 Route::get('/index2', [HomeController::class, 'index2'])->name('index2');
 Route::get('/index3', [HomeController::class, 'index3'])->name('index3');
@@ -32,21 +32,20 @@ Route::get('/user_delete/{id}', [App\Http\Controllers\HomeController::class, 'us
 Route::get('/user_add', [App\Http\Controllers\HomeController::class, 'user_add'])->name('user_add');
 Route::post('/user_save', [App\Http\Controllers\HomeController::class, 'user_save'])->name('user_save');
 
-
 #admin
 // Route::group(['middleware' => 'auth'], function (){
 
-//     // Route::get('/home' , [
-//     //     'uses' => 'HomeController@index' ,
-//     //     'as' => 'admin.home'
+// Route::get('/admi_dashboard' , [
+//     'uses' => 'HomeController@index' ,
+//     'as' => 'admin.home'
 
-//     // ])->middleware('admin');;
+// ]);;
+Route::get('/admin_dashboard',
+    [App\Http\Controllers\HomeController::class,
+        'admin_dashboard_view'])->middleware(['auth','admin'])->name('a_dashboard');
+Route::get('/user_dashboard',
+    [App\Http\Controllers\HomeController::class,
+        'user_dashboard_view'])->middleware(['auth'])->name('u_dashboard');
 
-//     Route::get('/' , [
-//         'uses' => 'HomeController@index' ,
-//         'as' => 'a_dashboard'
-
-//     ]);;
-
-
-    // });
+// });
+// });

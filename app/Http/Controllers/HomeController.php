@@ -28,6 +28,14 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function admin_dashboard_view()
+    {
+        return view('admin.admin_dashboard');
+    }
+    public function user_dashboard_view()
+    {
+        return view('users.user_dashboard');
+    }
     public function index()
     {
         return view('index');
