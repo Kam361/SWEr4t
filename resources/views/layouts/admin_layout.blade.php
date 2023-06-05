@@ -162,23 +162,28 @@
                                 <i class="fas fa-expand-arrows-alt"></i>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-                                <i class="fas fa-th-large"></i>
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name }}
                             </a>
-                        </li>
-                        <li style="" class="nav-item p-1">
-                            <a style="width:61px;height:32px;padding:3px 8px;"
-                                class="nav-link rounded-pill text-dark bg-danger" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                              var c=confirm('Confirm to Log-out...!');
-                                              if(c){
-                                                document.getElementById('logout-form').submit();
-                                            }">
-                                {{ __('Logout') }}
-                            </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
+
+                            <div style="width:61px;" class="bg-none dropdown-menu dropdown-menu-end"
+                                aria-labelledby="navbarDropdown">
+                                <a style="width:61px;height:32px;padding:3px 8px;"
+                                    class="dropdown-item nav-link rounded-pill text-dark bg-danger mx-auto"
+                                    href="{{ route('logout') }}" onclick="event.preventDefault();
+                                var c=confirm('Confirm to Logout?');
+                                if(c){
+                                document.getElementById('logout-form').submit();
+                              }">
+                                    {{ __('Logout') }}
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
                         </li>
                     </ul>
                 </nav>

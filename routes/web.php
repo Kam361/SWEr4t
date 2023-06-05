@@ -43,6 +43,7 @@ Route::post('/user_save', [App\Http\Controllers\HomeController::class, 'user_sav
 Route::get('/admin_dashboard',
     [App\Http\Controllers\HomeController::class,
         'admin_dashboard_view'])->middleware(['auth','admin'])->name('a_dashboard');
+        
 Route::get('/user_dashboard',
     [App\Http\Controllers\HomeController::class,
         'user_dashboard_view'])->middleware(['auth'])->name('u_dashboard');

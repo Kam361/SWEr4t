@@ -1,5 +1,4 @@
-{{-- {{ Session::get() }} --}}
-@extends('layouts.layout')
+@extends('layouts.admin_layout')
 
 @section("content")
 <div class="container">
